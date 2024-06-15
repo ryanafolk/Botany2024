@@ -9,3 +9,6 @@ This folder pertains to the morning session. Run the script `workshop.R` in R st
 
 ## `phenology`
 This folder pertains to the afternoon phenology session. Run the script `script.R` in R studio and set your working directory to this subfolder as well. The other file is the data file for this session.
+
+## Acknowledgments
+Code by Robert Guralnick, Daijiang Li, Carol Siniscalchi, and Ryan Folk. Thanks to 2022 and 2023 workshop participants for feedback and workshop experiences that helped us develop these materials.
