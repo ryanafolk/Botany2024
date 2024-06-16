@@ -13,7 +13,7 @@ xfun::pkg_attach2(c("tidyverse", "picante", "ape",
 
 veg_long = read.csv("data/veg_long.csv")
 veg_wide = read.csv("data/veg_wide.csv", row.names = 1)
-traits = read.csv("data/traits.csv")
+traits = read.csv("data/traits.csv", row.names = 1)
 envi = read.csv("data/envi.csv")
 
 
@@ -123,13 +123,15 @@ div_envi
 
 
 # PGLMMs ====
+?pivot_longer
 veg_long = mutate(veg_long, freq_log = log(freq + 1))
 
 if(!file.exists("data/m1.rds")){
-  m1 <- pglmm(freq_log ~ 1 + (1|sp__) + (1|site) + (1|sp__@site), data = veg_long, cov_ranef = list(sp = phy))
+  m1 <- pglmm(freq_log ~ 1 + (1|sp__) + (1|site) + (1|sp__@site), 
+              data = veg_long, cov_ranef = list(sp = phy))
   saveRDS(m1, "data/m1.rds")
 } else {
-  m1 = readRDS("data/ms.rds")
+  m1 = readRDS("data/m1.rds")
 }
 
 summary(m1)
