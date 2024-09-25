@@ -246,10 +246,12 @@ summary(BIO1.p)
 
 
 ## let's repeat the linear regression and pgls but with DR instead of nodulation
-BIO1.l.dr <- (lm(formula = BIO1 ~ DR, data = combined.fixed))
+BIO1.l.dr <- (lm(formula = DR ~ BIO1, data = combined.fixed))
 summary(BIO1.l.dr)
 
-BIO1.p.dr <- pgls(formula = as.numeric(BIO1) ~ as.numeric(DR), data = data_object)
+BIO1.p.dr <- pgls(formula = as.numeric(DR) ~ as.numeric(BIO1), data = data_object)
 summary(BIO1.p.dr)
+
+
 
 
